@@ -1,4 +1,3 @@
-const submit = document.querySelector(".submit-form");
 var db = firebase.database();
 
 function register() {
@@ -45,11 +44,6 @@ function register() {
   let state = document.getElementById("state").value;
   let address = document.getElementById("address").value;
   let date = document.getElementById("date").value;
-
-  let submit = document.getElementById("submitbtn");
-  submit.addEventListener("click", (e) => {
-    e.preventDefault();
-  });
 
   if (
     user == "" ||

@@ -393,9 +393,26 @@ button:hover{
     }
 }
 
+#root {
+    width: 100%;
+    display: grid;
+}
+
+tr {
+    display: flex;
+    margin: auto;
+}
+
 td {
-    padding: 10px;
+    padding: 10px 30px;
+    width: 150px;
     border: 1px solid black;
+    text-align: center;
+}
+ 
+#root tr th {
+    text-align: center;
+    display: flex;
 }
 
 td:hover {

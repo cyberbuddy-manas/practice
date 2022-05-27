@@ -61,13 +61,13 @@
     </div>
 
     <div class="container">
-        <form>
+        <div class ="form">
             Name : <br>
             <input type="text" placeholder="Your Name" id="user" required>
             <br><br>
 
             Gender: <br>
-            <select name="gender" id="gender">
+            <select name="gender" id="gender" required>
                 <option label="Select Gender" value="Select Gender"></option>
                 <option id="male" value="male">Male</option>
                 <option id="female" value="female">Female</option>
@@ -122,8 +122,8 @@
             <input type="date" name="date" id="date">
             <br><br>
 
-            <button id = "submitbtn" type="submit" onclick="register()" > Submit </button>
-        </form>
+            <button onclick="register()" > Submit </button>
+        </div>
     </div>
 
     <div class="footer">
