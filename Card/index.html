@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Card Design</title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+	<section class="container info">
+		<div>
+			<h1>Create your card</h1>
+			<label for="category">Select your Category</label>
+			<select id="category">
+				<option value="0">Select an option</option>
+				<option value="Travel">Travel</option>
+				<option value="Food">Food</option>
+				<option value="Automobile">Automobile</option>
+				<option value="Shopping">Shopping</option>
+			</select>
+			<label for="images">Select your Image</label>
+			<div id="images" class="images">
+				<img id="1" src="./images/card3/1.jpeg">
+				<img id="2" src="./images/card3/2.jpeg">
+				<img id="3" src="./images/card3/3.jpeg">
+				<img id="4" src="./images/card3/4.jpeg">
+				<img id="5" src="./images/card3/5.jpeg">
+				<img id="6" src="./images/card3/6.jpeg">
+			</div>
+			<label for="title">Enter your Title</label>
+			<input type="text" placeholder="Your Input" id="title">
+			<label for="desc">Enter your Description</label>
+			<textarea id="desc" placeholder="Your Input" rows="7"></textarea>
+			<input type="submit" id="submit">
+		</div>
+	</section>
+	<section id="root" class="container"></section>
+
+	<script type="text/javascript" src="./main.js"></script>
+</body>
+</html>

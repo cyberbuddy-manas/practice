@@ -1,0 +1,117 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+body {
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	padding: 40px 80px;
+}
+
+.container {
+	min-height: 600px;
+	min-width: 100%;
+	background-color: rgba(-66, -66, -66, 0.9);
+	padding: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 50px 80px;
+	flex-wrap: wrap;
+}
+
+.card {
+	width: 300px;
+	min-height: 400px;
+	background-color: rgba(44, 44, 44, 1.0);
+	border-radius: 22px;
+	overflow: hidden;
+	color: white;
+	/*margin: 25px 40px;*/
+}
+
+.card img {
+	width: 100%;
+	height: 200px;
+}
+
+.card .space {
+	padding: 30px;
+}
+
+.card h2 {
+	font-size: 15px;
+	letter-spacing: 3px;
+	color: rgba(444, 444, 444, 0.8);
+	margin-bottom: 20px;
+}
+
+.card p {
+	margin-top: 15px;
+	color: rgba(444, 444, 444, 0.7);
+	letter-spacing: 1px;
+}
+
+.info {
+	min-height: unset;
+	height: auto;
+	margin-bottom: 50px;
+}
+
+.info div {
+	display: grid;
+}
+
+.info h1 {
+	color: rgba(255, 255, 255, 1);
+	font-size: 45px;
+	margin-bottom: 25px;
+}
+
+.info label {
+	color: rgba(255, 255, 255, 0.8);
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+
+.info #title, .info select, .info textarea {
+	margin-bottom: 22px;
+	padding: 10px;
+}
+
+.info input[type="submit"] {
+	padding: 20px 30px;
+}
+
+.info .images {
+	grid-template-columns: 1fr 1fr 1fr;
+	margin-bottom: 22px;
+	background-color: white;
+	padding: 10px;
+	gap: 10px;
+	height: 180px;
+	align-items: center;
+}
+
+@media screen and (max-width: 450px) {
+	body {
+		padding: 0;
+	}
+
+	.info .images {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+.info .images img {
+	width: 100px;
+	height: 70px;
+	cursor: pointer;
+}
+
+.info .images img:hover {
+	border: 2px solid black;
+}
