@@ -40,6 +40,7 @@ var img5 = document.getElementById('5');
 var img6 = document.getElementById('6');
 
 var imgCon;
+var arrImg = ["./images/card3/1.jpeg", "./images/card3/2.jpeg", "./images/card3/3.jpeg", "./images/card3/4.jpeg", "./images/card3/5.jpeg", "./images/card3/6.jpeg"];
 
 img1.onclick = () => {
 	imgCon = img1.id;
@@ -101,4 +102,7 @@ img6.onclick = () => {
 	img1.style.border = "none";
 };
 
-document.getElementById('submit').onclick = () => {console.log(imgCon)};
+document.getElementById('submit').onclick = () => {
+	fetchData();
+	compo(arrImg[imgCon - 1], category.value, title.value, desc.value);
+};
