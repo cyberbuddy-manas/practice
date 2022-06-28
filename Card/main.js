@@ -104,5 +104,24 @@ img6.onclick = () => {
 
 document.getElementById('submit').onclick = () => {
 	fetchData();
-	compo(arrImg[imgCon - 1], category.value, title.value, desc.value);
+	if (category.value == "" || title.value == "" || desc.value == "" || imgCon == undefined ){
+		alert("Enter valid value.");
+	} else {
+		window.localStorage.setItem("category", category.value);
+		window.localStorage.setItem("title", title.value);
+		window.localStorage.setItem("desc", desc.value);
+		window.localStorage.setItem("imgCon", imgCon);
+
+		compo(arrImg[window.localStorage.getItem("imgCon") - 1], window.localStorage.getItem("category"), window.localStorage.getItem("title"), window.localStorage.getItem("desc"));
+
+		document.getElementById('category').value = "0";
+		document.getElementById('title').value = "";
+		document.getElementById('desc').value = "";
+		document.getElementById(imgCon).style.border = "none"
+		imgCon = undefined;
+	}
 };
+
+function loadCards() {
+	compo(arrImg[window.localStorage.getItem("imgCon") - 1], window.localStorage.getItem("category"), window.localStorage.getItem("title"), window.localStorage.getItem("desc"));
+}
