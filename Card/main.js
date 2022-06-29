@@ -1,3 +1,7 @@
+if (window.localStorage.getItem("id") == undefined) {
+	window.localStorage.setItem("id", 1);
+}
+
 function compo(source, category, title, para) {
 	var div1 = document.createElement("div");
 	div1.className = "card";
@@ -26,11 +30,29 @@ function compo(source, category, title, para) {
 
 compo("https://fakeimg.pl/300x200", "Food", "How to make Ice-Popsicles at Home", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
 
+function formReset() {
+	document.getElementById('category').value = "0";
+	document.getElementById('title').value = "";
+	document.getElementById('desc').value = "";
+	document.getElementById(imgCon).style.border = "none"
+	imgCon = undefined;
+}
+
 function fetchData() {
 	var category = document.getElementById('category');
 	var title = document.getElementById('title');
 	var desc = document.getElementById('desc');
 }
+
+// var img1, img2, img3, img4, img5, img6;
+
+// for (var i = 0; i < arrImages.length; i++) {
+// 	arrImages[i] = document.getElementById(i+1);
+// 	arrImages[i].addEventListener("click", () => {
+// 		selection(arrImages[i]);
+// 		imgCon = arrImages[i].id;
+// 	})
+// }
 
 var img1 = document.getElementById('1');
 var img2 = document.getElementById('2');
@@ -39,67 +61,51 @@ var img4 = document.getElementById('4');
 var img5 = document.getElementById('5');
 var img6 = document.getElementById('6');
 
+var arrImages = [img1, img2, img3, img4, img5, img6];
+
+function selection(ele) {
+	for (var i = 0; i < arrImages.length; i++) {
+		if (arrImages[i] == ele) {
+			ele.style.border = "2px solid black";
+			console.log(ele);
+			continue;
+		}
+		arrImages[i].style.border = "none";
+		console.log(ele);
+	}
+}
+
 var imgCon;
 var arrImg = ["./images/card3/1.jpeg", "./images/card3/2.jpeg", "./images/card3/3.jpeg", "./images/card3/4.jpeg", "./images/card3/5.jpeg", "./images/card3/6.jpeg"];
 
 img1.onclick = () => {
 	imgCon = img1.id;
-	img1.style.border = "2px solid black";
-	img2.style.border = "none";
-	img3.style.border = "none";
-	img4.style.border = "none";
-	img5.style.border = "none";
-	img6.style.border = "none";
+	selection(img1);
 };
 
 img2.onclick = () => {
 	imgCon = img2.id;
-	img2.style.border = "2px solid black";
-	img1.style.border = "none";
-	img3.style.border = "none";
-	img4.style.border = "none";
-	img5.style.border = "none";
-	img6.style.border = "none";
+	selection(img2);
 };
 
 img3.onclick = () => {
 	imgCon = img3.id;
-	img3.style.border = "2px solid black";
-	img2.style.border = "none";
-	img1.style.border = "none";
-	img4.style.border = "none";
-	img5.style.border = "none";
-	img6.style.border = "none";
+	selection(img3);
 };
 
 img4.onclick = () => {
 	imgCon = img4.id;
-	img4.style.border = "2px solid black";
-	img2.style.border = "none";
-	img3.style.border = "none";
-	img1.style.border = "none";
-	img5.style.border = "none";
-	img6.style.border = "none";
+	selection(img4);
 };
 
 img5.onclick = () => {
 	imgCon = img5.id;
-	img5.style.border = "2px solid black";
-	img2.style.border = "none";
-	img3.style.border = "none";
-	img4.style.border = "none";
-	img1.style.border = "none";
-	img6.style.border = "none";
+	selection(img5);
 };
 
 img6.onclick = () => {
 	imgCon = img6.id;
-	img6.style.border = "2px solid black";
-	img2.style.border = "none";
-	img3.style.border = "none";
-	img4.style.border = "none";
-	img5.style.border = "none";
-	img1.style.border = "none";
+	selection(img6);
 };
 
 document.getElementById('submit').onclick = () => {
@@ -107,21 +113,24 @@ document.getElementById('submit').onclick = () => {
 	if (category.value == "" || title.value == "" || desc.value == "" || imgCon == undefined ){
 		alert("Enter valid value.");
 	} else {
-		window.localStorage.setItem("category", category.value);
-		window.localStorage.setItem("title", title.value);
-		window.localStorage.setItem("desc", desc.value);
-		window.localStorage.setItem("imgCon", imgCon);
+		var id = parseInt(window.localStorage.getItem("id"));
+		window.localStorage.setItem("category" + id, category.value);
+		window.localStorage.setItem("title" + id, title.value);
+		window.localStorage.setItem("desc" + id, desc.value);
+		window.localStorage.setItem("imgCon" + id, imgCon);
 
-		compo(arrImg[window.localStorage.getItem("imgCon") - 1], window.localStorage.getItem("category"), window.localStorage.getItem("title"), window.localStorage.getItem("desc"));
+		compo(arrImg[window.localStorage.getItem("imgCon" + id) - 1], window.localStorage.getItem("category" + id), window.localStorage.getItem("title" + id), window.localStorage.getItem("desc" + id));
 
-		document.getElementById('category').value = "0";
-		document.getElementById('title').value = "";
-		document.getElementById('desc').value = "";
-		document.getElementById(imgCon).style.border = "none"
-		imgCon = undefined;
+		id = id + 1;
+		window.localStorage.setItem("id", id);
+
+		formReset();
 	}
 };
 
 function loadCards() {
-	compo(arrImg[window.localStorage.getItem("imgCon") - 1], window.localStorage.getItem("category"), window.localStorage.getItem("title"), window.localStorage.getItem("desc"));
+	var id = parseInt(window.localStorage.getItem("id"));
+	for (var i = 1; i < id; i++) {
+		compo(arrImg[window.localStorage.getItem("imgCon" + i) - 1], window.localStorage.getItem("category" + i), window.localStorage.getItem("title" + i), window.localStorage.getItem("desc" + i));
+	}
 }
