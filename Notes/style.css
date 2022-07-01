@@ -40,6 +40,10 @@ section {
 	box-shadow: 0 4px 19px rgba(0, 0, 0, 0.1);
 }
 
+#home {
+	display: none;
+}
+
 .nav {
 	width: 100%;
 	height: 80px;
@@ -173,7 +177,7 @@ section {
 /*====== Create Section ======*/
 
 #create {
-	display: none;
+	/*display: none;*/
 }
 
 .nav2 {
@@ -197,9 +201,71 @@ section {
 	position: absolute;
 	margin-left: 25px;
 	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.nav2 .back div {
+	position: absolute;
+	width: 30%;
+	height: 3px;
+	background-color: rgba(0, 0, 0, 0.8);
+	border-radius: 5px;
+}
+
+.nav2 .back div:nth-child(1) {
+	width: 55%;
+	height: 2.5px;
+	margin-left: 5px;
+}
+
+.nav2 .back div:nth-child(2) {
+	transform: rotate(-45deg);
+	margin-bottom: 9px;
+	margin-right: 12px;
+}
+
+.nav2 .back div:nth-child(3) {
+	transform: rotate(45deg);
+	margin-top: 9px;
+	margin-right: 12px;
 }
 
 .nav2 h1 {
 	width: 100%;
 	text-align: center;
+}
+
+.sheet2 {
+	width: 100%;
+	height: calc(100% - 80px);
+	display: flex;
+	flex-direction: column;
+}
+
+.sheet2 input[type="text"] {
+	padding: 30px 40px;
+	font-size: 26px;
+	color: rgba(0, 0, 0, 0.8);
+	border: none;
+	line-height: 40px;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.sheet2 input[type="text"]:focus {
+	outline: none;
+}
+
+.sheet2 textarea {
+	height: calc(100% - 180px);
+	width: calc(100% - 80px);
+	padding: 30px 40px;
+	font-size: 18px;
+	border: none;
+	resize: none;
+}
+
+.sheet2 textarea:focus {
+	outline: none;
 }
